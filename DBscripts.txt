@@ -1,0 +1,17 @@
+create database myDB;
+
+use myDB;
+
+create table userinfo(userID INT, age INT, gender STRING, occupation STRING, zipcode INT)
+row format delimited 
+fields terminated by "|" 
+lines terminated by "\n";
+
+load data local inpath '/home/cloudera/Downloads/ml-100k/u.user' into table userinfo;
+
+select * from userinfo;
+
+select count(distinct userID) from userinfo;
+
+select max(userID) from userinfo;
+
